@@ -13,7 +13,7 @@
 //    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 //
 
-char* aCmdsBasic[] =
+const char* aCmdsBasic[] =
 {
 	"REM",			//00
 	"DATA",			//01
@@ -73,7 +73,7 @@ char* aCmdsBasic[] =
 	"ERROR -",		//37 last Atari Basic command
 };
 
-char* aOpsBasic[] = {	  
+const char* aOpsBasic[] = {	  
 	"NCONST",		  //0E
 	"SCONST",		  //0F
 	"NOUSE",			  //10

@@ -15,7 +15,7 @@
 
 #define BXL_EXTEND 0x5A
 
-char* aCmdsBasicXl[] =
+const char* aCmdsBasicXl[] =
 {
 	"REM",			//00
 	"DATA",			//01
@@ -113,7 +113,7 @@ char* aCmdsBasicXl[] =
 
 };
 
-char* aOpsBasicXl[] = {
+const char* aOpsBasicXl[] = {
 	"NHCONST",		//0D
 	"NCONST",		  //0E
 	"SCONST",		  //0F

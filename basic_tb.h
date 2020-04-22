@@ -13,7 +13,7 @@
 //    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 //
 
-char* aCmdsTBasic[] =
+const char* aCmdsTBasic[] =
 {
 	"REM",			//00
 	"DATA",			//01
@@ -118,7 +118,7 @@ char* aCmdsTBasic[] =
 	"\%GET",			//64
 };						  
 
-char* aOpsTBasic[] = {	  
+const char* aOpsTBasic[] = {	  
    "NHCONST",       //0D
 	"NCONST",		  //0E
 	"SCONST",		  //0F

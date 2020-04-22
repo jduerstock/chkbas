@@ -38,8 +38,8 @@ typedef enum
 
 typedef struct
 {
-	char** ppCommands;	//array of commands
-	char** ppOperands;	//array of operands
+	const char** ppCommands;	//array of commands
+	const char** ppOperands;	//array of operands
 
 	int iCmdNum;			//number of commands
 	int iOpNum;				//number of operands
@@ -104,13 +104,24 @@ BOOL g_bHasErrors = FALSE;	//decode error flag
 BOOL g_bNoInverse = FALSE;	//don't emit inverse
 BASIC_TYPE g_Type = BASIC;	//basic type. Default is Atari Basic
 
-char** g_aBasicCmds;			//array of commands
-char** g_aBasicOps;			//array of operands
+const char** g_aBasicCmds;			//array of commands
+const char** g_aBasicOps;			//array of operands
 int g_iCmdNum;					//number of commands
 int g_iOpsNum;					//number of operands
 int g_iOpFirst;				//first operand
 
 #include "switches.cpp"
+
+char *strlwr(char *str)
+{
+  unsigned char *p = (unsigned char *)str;
+
+  while (*p) {
+     *p = tolower((unsigned char)*p);
+      p++;
+  }
+  return str;
+}
 
 int main( int argc, char* argv[] )
 {
@@ -629,7 +640,7 @@ BOOL GenOpsCode( CFile* pcf, DWORD dwTokEnd )
 			strlwr( szPom + 1 );
 		}
 
-		fprintf( g_fout, szPom );
+		fprintf( g_fout, "%s", szPom );
 
 		return TRUE;
 	}
@@ -803,7 +814,7 @@ BOOL Vars_Load( CFile* pcf, WORD wVNT, WORD wVNTL, WORD wVVT, WORD NV )
 		BYTE btType = pcf->readb();
 		BYTE btNumber = pcf->readb();
 
-		char* szType;
+		const char* szType;
 
 		char szText[ 50 ];
 
